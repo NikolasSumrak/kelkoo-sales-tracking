@@ -1,0 +1,24 @@
+<?php
+/** @var \Sumrak\KelkooSalesTracking\Block\Track $block */
+$order = $block->getOrder();
+
+if (!$block->canShowBlock()) {
+    return;
+}
+?>
+<script type="text/javascript">
+    var _kkstrack = {
+        merchantInfo : [{ country:"<?= $block->getCountryCode() ?>", merchantId:"<?= $block->getMerchantId() ?>" }],
+        orderValue: '<?= $order->getGrandTotal() ?>',
+        orderId: '<?= $order->getId() ?>',
+        basket:  <?= $block->getQuoteDataJson() ?>
+    };
+    (function() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://s.kk-resources.com/ks.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    })();
+</script>
