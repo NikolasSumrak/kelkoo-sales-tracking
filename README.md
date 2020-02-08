@@ -8,6 +8,12 @@ Track your orders in Kelkoo.
 
 ## Installation
 
+### Composer
+- Go to your magento root dir
+- Run ```composer require sumrak/kelkoo-sales-tracking```
+- Run ```php bin/magento module:enable Sumrak_KelkooSalesTracking``` to enable module
+- Run ```php bin/magento setup:upgrade``` to install
+
 ### Manual
 - Download zip with this module.
 - Extract to {your magento path}/app/code/Sumrak/KelkooSalesTracking
